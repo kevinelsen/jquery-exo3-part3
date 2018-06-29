@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+  <input type="text" id="champs">
+  <button id="luck">Tente ta chance !</button>
+    <script src="jquery-3.2.1.js"></script>
+    <script>
+      var cpt = 0;// nb de coups
+      var nb = Math.floor(Math.random() * Math.floor(101));//nb a deviner
+      $('#luck').click(function(){
+        cpt++;
+        var champs = $('#champs').val();
+        if (nb > champs){
+          alert('C\'est plus');
+        } else if (nb < champs){
+
+          alert('C\'est moins');
+        }
+        else {
+          alert('Bravos, tu as gagne en ' +cpt+ ' coups!');
+        }
+      });
+    </script>
+  </body>
+</html>
