@@ -1,28 +1,31 @@
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
   <head>
-    <meta charset="utf-8">
-    <title></title>
+    <meta charset="utf-8" />
+    <title>Exercice 3</title>
   </head>
   <body>
-  <input type="text" id="champs">
+  <input type="text" id="userNumber" />
   <button id="luck">Tente ta chance !</button>
     <script src="jquery-3.2.1.js"></script>
     <script>
-      var cpt = 0;// nb de coups
-      var nb = Math.floor(Math.random() * Math.floor(101));//nb a deviner
+      var count = 0;// nb de coups
+      var regexNumber = /^[0-9]+$/;
+      var randomNumber = Math.floor(Math.random() * 100);//nb a deviner
       $('#luck').click(function(){
-        cpt++;
-        var champs = $('#champs').val();
-        if (nb > champs){
+        var userNumber = $('#userNumber').val();
+        if(regexNumber.test(userNumber)){
+          count++;
+        if (randomNumber > userNumber){
           alert('C\'est plus');
-        } else if (nb < champs){
-
+        } else if (randomNumber < userNumber){
           alert('C\'est moins');
+        } else {
+          alert('Bravos, tu as gagne en ' +count+ ' coups!');
         }
-        else {
-          alert('Bravos, tu as gagne en ' +cpt+ ' coups!');
-        }
+      }else {
+        alert('Vôtre nombre n\'est pas bon');
+      }
       });
     </script>
   </body>
